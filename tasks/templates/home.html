@@ -1,0 +1,11 @@
+{% extends "layouts/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans 'Home' %}{% endblock %}
+{% block header %}{% trans 'Django Greeting'%}{% endblock %}
+
+{% block content %}
+    <p>{% trans 'Please' %}
+        <a href="{% url 'register' %}">{% trans 'Register' %}</a>
+    </p>
+{% endblock %}
