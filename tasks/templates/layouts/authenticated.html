@@ -1,0 +1,216 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% trans "My Auth App" %}{% endblock %}</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --dark-color: #1f2937;
+            --light-color: #f9fafb;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --warning-color: #f59e0b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header Styles */
+        .auth-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .auth-header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        /* Navigation */
+        .auth-nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .auth-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .auth-nav a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Language Selector */
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-selector select {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            appearance: none;
+            padding-right: 2rem;
+        }
+        
+        .language-selector::after {
+            content: "▼";
+            color: white;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            font-size: 0.7rem;
+        }
+        
+        /* Main Content */
+        .auth-main {
+            flex: 1;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        /* Dashboard Card */
+        .dashboard-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Footer */
+        .auth-footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: auto;
+        }
+        
+        /* User Profile */
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .auth-header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .auth-nav {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header class="auth-header">
+        <h1>{% block header %}{% trans "Dashboard" %}{% endblock %}</h1>
+        
+        <nav class="auth-nav">
+            <div class="language-selector">
+                <select id="language-select" onchange="window.location.href=this.value">
+                    {% for lang in LANGUAGES %}
+                       <option value=""
+                                style="color: black;"
+                                {% if lang.is_current %}selected{% endif %}>
+                            {{ lang.name_local|title }} ({{ lang.code }})
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main class="auth-main">
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+        <div class="dashboard-card">
+            {% block content %}
+            <!-- Contenido específico irá aquí -->
+            {% endblock %}
+        </div>
+    </main>
+
+    <footer class="auth-footer">
+        {% block footer %}
+        <p>&copy; {% now "Y" %} {% trans "My Auth App" %}. {% trans "All rights reserved" %}.</p>
+        {% endblock %}
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Funcionalidad básica del selector de idiomas
+        document.getElementById('language-select').addEventListener('change', function() {
+            if(this.value) {
+                window.location.href = this.value;
+            }
+        });
+    </script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
