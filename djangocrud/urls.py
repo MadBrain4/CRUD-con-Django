@@ -20,8 +20,11 @@ from tasks import views
 from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = i18n_patterns(
+    path('register/', views.signup, name='register'),
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
+
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('register/', views.signup, name='register'),
     path('tasks/', views.tasks, name='tasks'),
 )

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-11 02:29-0400\n"
+"POT-Creation-Date: 2025-07-11 15:57-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,36 +18,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\tasks\templates\home.html:4
+#: .\tasks\templates\home.html:4 .\tasks\templates\includes\_navbar.html:218
 msgid "Home"
 msgstr "Home"
 
 #: .\tasks\templates\home.html:5
 msgid "Django Greeting"
-msgstr "Django Greeting"
+msgstr "Django"
 
 #: .\tasks\templates\home.html:8
 msgid "Please"
 msgstr "Please"
 
-#: .\tasks\templates\home.html:9
+#: .\tasks\templates\home.html:9 .\tasks\templates\includes\_navbar.html:243
 msgid "Register"
 msgstr "Register"
 
-#: .\tasks\templates\includes\_navbar.html:94
-msgid "Welcome"
-msgstr "Welcome"
+#: .\tasks\templates\includes\_navbar.html:214
+msgid "Django App"
+msgstr "Django App"
+
+#: .\tasks\templates\includes\_navbar.html:219
+#: .\tasks\templates\tasks\tasks.html:4
+msgid "Tasks"
+msgstr "Tasks"
+
+#: .\tasks\templates\includes\_navbar.html:242
+msgid "Login"
+msgstr "Login"
+
+#: .\tasks\templates\includes\_navbar.html:255
+msgid "Profile"
+msgstr ""
+
+#: .\tasks\templates\includes\_navbar.html:256
+msgid "Logout"
+msgstr "Logout"
 
 #: .\tasks\templates\layouts\authenticated.html:7
-#: .\tasks\templates\layouts\authenticated.html:122
+#: .\tasks\templates\layouts\authenticated.html:120
 msgid "My Auth App"
 msgstr "My Auth App"
 
-#: .\tasks\templates\layouts\authenticated.html:97
-msgid "Dashboard"
-msgstr "Dashboard"
-
-#: .\tasks\templates\layouts\authenticated.html:122
+#: .\tasks\templates\layouts\authenticated.html:120
 msgid "All rights reserved"
 msgstr "All rights reserved"
 
@@ -59,10 +72,6 @@ msgstr "My Django Site"
 #: .\tasks\templates\layouts\base.html:66
 msgid "My Django Project"
 msgstr "My Django Project"
-
-#: .\tasks\templates\tasks\tasks.html:4
-msgid "Tasks"
-msgstr "Tasks"
 
 #: .\tasks\templates\tasks\tasks.html:7
 msgid "My Tasks"
@@ -1303,3 +1312,9 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:236
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "Dashboard"
+#~ msgstr "Dashboard"
+
+#~ msgid "Welcome"
+#~ msgstr "Welcome"

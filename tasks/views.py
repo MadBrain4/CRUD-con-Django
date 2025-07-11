@@ -38,3 +38,10 @@ def signup (request):
 
 def tasks (request):
     return render(request, 'tasks/tasks.html')
+
+def logout_view (request):
+    logout(request)
+    return redirect('home')
+
+def login_view (request):
+    return render(request, 'auth/login.html')

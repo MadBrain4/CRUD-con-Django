@@ -1,22 +1,151 @@
-{% extends "layouts/base.html" %}
+{% extends "layouts/authenticated.html" %}
 
 {% block title %}Signup{% endblock %}
 {% block header %}Registrarse{% endblock %}
 
 {% block content %}
-    <form action="{% url 'register' %}" method="post">
+<style>
+    /* Contenedor principal */
+    .auth-container {
+        max-width: 500px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Estilos para el formulario */
+    .auth-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    /* Grupos de campos del formulario */
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Etiquetas */
+    .form-group label {
+        font-weight: 500;
+        color: #333;
+        font-size: 0.95rem;
+    }
+
+    /* Campos de entrada */
+    .form-group input {
+        padding: 0.75rem 1rem;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .form-group input:focus {
+        border-color: #4a90e2;
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+        outline: none;
+    }
+
+    /* Botón de enviar */
+    .submit-btn {
+        background-color: #4a90e2;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-weight: 500;
+        margin-top: 1rem;
+    }
+
+    .submit-btn:hover {
+        background-color: #3a7bc8;
+    }
+
+    /* Mensajes */
+    .messages {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+    }
+
+    .messages li {
+        padding: 0.75rem 1rem;
+        border-radius: 6px;
+        margin-bottom: 0.5rem;
+    }
+
+    .success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+
+    .error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+
+    /* Enlace de volver */
+    .back-link {
+        display: inline-block;
+        margin-top: 1.5rem;
+        color: #4a90e2;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    .back-link:hover {
+        color: #3a7bc8;
+        text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+        .auth-container {
+            margin: 1rem;
+            padding: 1.5rem;
+        }
+    }
+</style>
+
+<div class="auth-container">
+    <form class="auth-form" action="{% url 'register' %}" method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Registrarse</button>
+        
+        {% for field in form %}
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.help_text %}
+                <small class="form-text text-muted">{{ field.help_text }}</small>
+            {% endif %}
+            {% for error in field.errors %}
+                <div class="error-text" style="color: #dc3545; font-size: 0.85rem;">{{ error }}</div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+        
+        <button type="submit" class="submit-btn">Registrarse</button>
     </form>
 
     {% if messages %}
-        <ul>
+        <ul class="messages">
             {% for message in messages %}
             <li class="{{ message.tags }}">{{ message }}</li>
             {% endfor %}
         </ul>
     {% endif %}
 
-    <a href="{% url 'home' %}">Volver al Home</a>
+    <a href="{% url 'home' %}" class="back-link">← Volver al Home</a>
+</div>
 {% endblock %}

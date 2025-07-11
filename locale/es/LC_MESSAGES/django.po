@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-11 02:29-0400\n"
+"POT-Creation-Date: 2025-07-11 15:56-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,36 +19,49 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
 "1 : 2;\n"
 
-#: .\tasks\templates\home.html:4
+#: .\tasks\templates\home.html:4 .\tasks\templates\includes\_navbar.html:218
 msgid "Home"
 msgstr "Inicio"
 
 #: .\tasks\templates\home.html:5
 msgid "Django Greeting"
-msgstr "Saludo de Django"
+msgstr "Django"
 
 #: .\tasks\templates\home.html:8
 msgid "Please"
 msgstr "Por favor"
 
-#: .\tasks\templates\home.html:9
+#: .\tasks\templates\home.html:9 .\tasks\templates\includes\_navbar.html:243
 msgid "Register"
 msgstr "Regístrate"
 
-#: .\tasks\templates\includes\_navbar.html:94
-msgid "Welcome"
-msgstr "Bienvenido/a"
+#: .\tasks\templates\includes\_navbar.html:214
+msgid "Django App"
+msgstr "App de Django"
+
+#: .\tasks\templates\includes\_navbar.html:219
+#: .\tasks\templates\tasks\tasks.html:4
+msgid "Tasks"
+msgstr "Tareas"
+
+#: .\tasks\templates\includes\_navbar.html:242
+msgid "Login"
+msgstr "Inicio de Sesión"
+
+#: .\tasks\templates\includes\_navbar.html:255
+msgid "Profile"
+msgstr ""
+
+#: .\tasks\templates\includes\_navbar.html:256
+msgid "Logout"
+msgstr "Cerrar Sesión"
 
 #: .\tasks\templates\layouts\authenticated.html:7
-#: .\tasks\templates\layouts\authenticated.html:122
+#: .\tasks\templates\layouts\authenticated.html:120
 msgid "My Auth App"
 msgstr "Mi App de Autenticación"
 
-#: .\tasks\templates\layouts\authenticated.html:97
-msgid "Dashboard"
-msgstr "Panel de Control"
-
-#: .\tasks\templates\layouts\authenticated.html:122
+#: .\tasks\templates\layouts\authenticated.html:120
 msgid "All rights reserved"
 msgstr "Todos los derechos reservados"
 
@@ -60,10 +73,6 @@ msgstr "Mi Sitio Django"
 #: .\tasks\templates\layouts\base.html:66
 msgid "My Django Project"
 msgstr "Mi Proyecto Django"
-
-#: .\tasks\templates\tasks\tasks.html:4
-msgid "Tasks"
-msgstr "Tareas"
 
 #: .\tasks\templates\tasks\tasks.html:7
 msgid "My Tasks"
@@ -1304,3 +1313,9 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:236
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "Dashboard"
+#~ msgstr "Panel de Control"
+
+#~ msgid "Welcome"
+#~ msgstr "Bienvenido/a"
