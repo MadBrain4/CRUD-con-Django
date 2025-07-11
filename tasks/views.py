@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 from django.utils.translation import get_language
 from django.utils.translation import gettext as _
+from django.db import IntegrityError
 
 
 # Create your views here.
@@ -22,8 +23,9 @@ def signup (request):
                 )
                 user.save()
                 messages.success(request, _("User created successfully"))
-                return HttpResponse(_('User created successfully'))
-            except:
+                login(request, user)
+                return redirect('tasks')
+            except IntegrityError:
                 messages.error(request, _("Username already exists"))
                 return redirect('register')
         else:
