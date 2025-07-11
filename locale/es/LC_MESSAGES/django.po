@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-10 01:29-0400\n"
+"POT-Creation-Date: 2025-07-11 02:29-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,6 +35,23 @@ msgstr "Por favor"
 msgid "Register"
 msgstr "Regístrate"
 
+#: .\tasks\templates\includes\_navbar.html:94
+msgid "Welcome"
+msgstr "Bienvenido/a"
+
+#: .\tasks\templates\layouts\authenticated.html:7
+#: .\tasks\templates\layouts\authenticated.html:122
+msgid "My Auth App"
+msgstr "Mi App de Autenticación"
+
+#: .\tasks\templates\layouts\authenticated.html:97
+msgid "Dashboard"
+msgstr "Panel de Control"
+
+#: .\tasks\templates\layouts\authenticated.html:122
+msgid "All rights reserved"
+msgstr "Todos los derechos reservados"
+
 #: .\tasks\templates\layouts\base.html:7
 msgid "My Django Site"
 msgstr "Mi Sitio Django"
@@ -44,15 +61,23 @@ msgstr "Mi Sitio Django"
 msgid "My Django Project"
 msgstr "Mi Proyecto Django"
 
-#: .\tasks\views.py:24 .\tasks\views.py:25
+#: .\tasks\templates\tasks\tasks.html:4
+msgid "Tasks"
+msgstr "Tareas"
+
+#: .\tasks\templates\tasks\tasks.html:7
+msgid "My Tasks"
+msgstr "Mis Tareas"
+
+#: .\tasks\views.py:25
 msgid "User created successfully"
 msgstr "El usuario se ha creado existosamente"
 
-#: .\tasks\views.py:27
+#: .\tasks\views.py:29
 msgid "Username already exists"
 msgstr "El nombre de usuario ya existe"
 
-#: .\tasks\views.py:30
+#: .\tasks\views.py:32
 msgid "Passwords do not match"
 msgstr "Las contraseñas no coinciden"
 
