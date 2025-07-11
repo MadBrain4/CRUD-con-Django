@@ -43,5 +43,5 @@ def logout_view (request):
     logout(request)
     return redirect('home')
 
-def login_view (request):
+def signin (request):
     return render(request, 'auth/login.html')

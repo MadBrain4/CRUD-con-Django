@@ -14,16 +14,23 @@
             width: 100%;
         }
         
-        /* Logo */
-        .logo-container {
+        /* Contenedor principal izquierdo */
+        .left-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        /* Logo y nombre de la app */
+        .branding {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
         
         .logo-img {
-            height: 40px;  /* Altura fija para el logo */
-            width: auto;  /* Ancho automático para mantener proporción */
+            height: 40px;
+            width: auto;
             object-fit: contain;
             transition: transform 0.3s;
         }
@@ -36,20 +43,14 @@
             font-weight: 600;
             color: white;
             font-size: 1.2rem;
-        }
-        
-        /* Grupos laterales */
-        .nav-group {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
+            white-space: nowrap;
         }
         
         /* Navegación principal */
         .nav-links {
             display: flex;
             gap: 1rem;
-            margin-left: 2rem;
+            align-items: center;
         }
         
         /* Elementos de navegación */
@@ -70,6 +71,7 @@
         /* Selector de idioma */
         .language-selector {
             position: relative;
+            margin-right: 1rem; /* Espacio entre selector y auth */
         }
         
         .language-selector select {
@@ -151,10 +153,18 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
         
+        /* Contenedor derecho */
+        .right-container {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
         /* Botones de auth */
         .auth-buttons {
             display: flex;
             gap: 1rem;
+            align-items: center;
         }
         
         .auth-button {
@@ -172,26 +182,39 @@
                 padding: 1rem;
             }
             
-            .nav-group {
+            .left-container {
+                flex-direction: column;
                 width: 100%;
-                justify-content: space-between;
-                flex-wrap: wrap;
+                gap: 1rem;
             }
             
-            .logo-container {
+            .branding {
                 justify-content: center;
-                margin-bottom: 1rem;
             }
             
             .nav-links {
-                margin-left: 0;
                 justify-content: center;
                 width: 100%;
-                margin-bottom: 1rem;
+            }
+            
+            .right-container {
+                width: 100%;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .language-selector {
+                width: 100%;
+                margin-right: 0;
             }
             
             .language-selector select {
                 width: 100%;
+            }
+            
+            .auth-buttons {
+                width: 100%;
+                justify-content: center;
             }
             
             .dropdown-menu {
@@ -206,13 +229,11 @@
     </style>
     
     <!-- Grupo izquierdo -->
-    <div class="nav-group">
-        <div class="logo-container">
-            <a href="{% url 'home' %}">
-                <img src="{% static 'tasks/images/logo.png' %}" alt="Logo" class="logo-img">
-            </a>
+    <div class="left-container">
+        <a href="{% url 'home' %}" class="branding">
+            <img src="{% static 'tasks/images/logo.png' %}" alt="Logo" class="logo-img">
             <span class="app-name">{% trans "Django App" %}</span>
-        </div>
+        </a>
         
         <div class="nav-links">
             <a href="{% url 'home' %}" class="nav-item">{% trans "Home" %}</a>
@@ -221,7 +242,7 @@
     </div>
     
     <!-- Grupo derecho -->
-    <div class="nav-group">
+    <div class="right-container">
         <div class="language-selector">
             <select id="language-select" onchange="if (this.value) window.location.href=this.value">
                 {% for lang in LANGUAGES %}
@@ -237,13 +258,11 @@
         </div>
         
         {% if not user.is_authenticated %}
-            <!-- Botones de autenticación -->
             <div class="auth-buttons">
                 <a href="{% url 'login' %}" class="nav-item auth-button">{% trans "Login" %}</a>
                 <a href="{% url 'register' %}" class="nav-item auth-button">{% trans "Register" %}</a>
             </div>
         {% else %}
-            <!-- Menú de usuario -->
             <div class="user-menu">
                 <div class="user-toggle">
                     <img src="{% if user.profile.avatar %}{{ user.profile.avatar.url }}{% else %}{% static 'tasks/images/avatar.png' %}{% endif %}" 

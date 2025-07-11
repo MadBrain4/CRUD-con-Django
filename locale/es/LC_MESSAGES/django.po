@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-11 15:56-0400\n"
+"POT-Creation-Date: 2025-07-11 16:18-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,28 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
 "1 : 2;\n"
+
+#: .\tasks\templates\auth\login.html:5
+msgid "Sign In"
+msgstr "Inicio de Sesión"
+
+#: .\tasks\templates\auth\login.html:6
+#: .\tasks\templates\includes\_navbar.html:242
+msgid "Login"
+msgstr "Inicio de Sesión"
+
+#: .\tasks\templates\auth\signup.html:4
+msgid "Sign Up"
+msgstr "Registrarse"
+
+#: .\tasks\templates\auth\signup.html:5 .\tasks\templates\auth\signup.html:139
+#: .\tasks\templates\home.html:9 .\tasks\templates\includes\_navbar.html:243
+msgid "Register"
+msgstr "Regístrate"
+
+#: .\tasks\templates\auth\signup.html:150
+msgid "Go to home"
+msgstr "Ir a home"
 
 #: .\tasks\templates\home.html:4 .\tasks\templates\includes\_navbar.html:218
 msgid "Home"
@@ -31,10 +53,6 @@ msgstr "Django"
 msgid "Please"
 msgstr "Por favor"
 
-#: .\tasks\templates\home.html:9 .\tasks\templates\includes\_navbar.html:243
-msgid "Register"
-msgstr "Regístrate"
-
 #: .\tasks\templates\includes\_navbar.html:214
 msgid "Django App"
 msgstr "App de Django"
@@ -44,15 +62,7 @@ msgstr "App de Django"
 msgid "Tasks"
 msgstr "Tareas"
 
-#: .\tasks\templates\includes\_navbar.html:242
-msgid "Login"
-msgstr "Inicio de Sesión"
-
 #: .\tasks\templates\includes\_navbar.html:255
-msgid "Profile"
-msgstr ""
-
-#: .\tasks\templates\includes\_navbar.html:256
 msgid "Logout"
 msgstr "Cerrar Sesión"
 

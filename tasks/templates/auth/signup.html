@@ -1,7 +1,8 @@
 {% extends "layouts/authenticated.html" %}
 
-{% block title %}Signup{% endblock %}
-{% block header %}Registrarse{% endblock %}
+
+{% block title %}{% trans 'Sign Up' %}{% endblock %}
+{% block header %}{% trans 'Register' %}{% endblock %}
 
 {% block content %}
 <style>
@@ -135,7 +136,7 @@
         </div>
         {% endfor %}
         
-        <button type="submit" class="submit-btn">Registrarse</button>
+        <button type="submit" class="submit-btn">{% trans 'Register' %}</button>
     </form>
 
     {% if messages %}
@@ -146,6 +147,6 @@
         </ul>
     {% endif %}
 
-    <a href="{% url 'home' %}" class="back-link">← Volver al Home</a>
+    <a href="{% url 'home' %}" class="back-link">{% trans 'Go to home' %}</a>
 </div>
 {% endblock %}
